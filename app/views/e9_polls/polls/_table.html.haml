@@ -1,0 +1,18 @@
+%table.records
+  %thead
+    %tr
+      %th= resource_class.human_attribute_name(:name)
+      %th= e9_t(:actions)
+  %tbody
+    - if collection.empty?
+      %tr
+        %td{:colspan => 2}= e9_t(:no_records_text)
+    - else
+      - collection.each do |record|
+        %tr{:id => "ids_#{record.id}", :class => cycle('odd', 'even')}
+          %td.text
+            = record.name
+          %td.links
+            = e9_polls_resource_link(:show, record)
+            = e9_polls_resource_link(:edit, record)
+            = e9_polls_resource_link(:destroy, record)

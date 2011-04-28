@@ -1,0 +1,25 @@
+= form_for resource, :url => polymorphic_path([parent, resource]), :remote => request.xhr? do |f|
+  = content_for :bottom_javascripts do
+    :javascript
+      #{nested_attribute_template_js(Poll, :poll_answers)}
+
+  .errors= resource_error_messages!
+
+  .field
+    = f.label :name, nil, :class => :req
+    = f.text_field :name
+
+  .field
+    = f.label :template, nil, :class => :req
+    = f.text_field :template
+
+  %fieldset.poll-answers.nested-associations
+    %legend
+      %span= f.label(:poll_answers)
+      = link_to_add_nested_attribute(:poll_answers)
+    = render_nested_attribute_association(:poll_answers, f)
+
+  = render 'shared/admin/region_type_select', :f => f
+
+  .actions
+    = f.submit

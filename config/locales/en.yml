@@ -1,0 +1,12 @@
+en:
+  e9_polls:
+    destroy: Delete
+    edit: Edit
+    show: View
+    new: New
+    confirm_destroy: Are you sure?  This cannot be undone.
+    add_nested_attribute: Add
+    destroy_nested_attribute: Remove
+    polls:
+      new: Add a Poll
+      show: View Results
