@@ -1,1 +1,28 @@
 == E9Polls
+
+Provites a Poll renderable for the e9 Rails 3 CMS.
+
+== Installation
+
+1.  Include the gem and run the install generator to copy over the necessary files, 
+    then migrate.
+        
+        rails g e9_polls:install
+
+    This will install the db migration, the JS and CSS required for the plugin to 
+    function properly, and an initializer.
+    
+    Modify the CSS as you see fit and the JS as required (carefully).
+
+    Check out the initializer and modify if necessary.  For non-Ajax fallbacks it uses 
+    the 'application' layout.  This should be changed if the app doesn't use application 
+    layout as a sensible default.
+
+2.  Migrate the database. 
+
+        rake db:migrate
+
+3.  Finally, include the generated javascript and css (e9_polls.js and e9_polls.css) 
+    in the fashion suited to the app.
+
+4.  There is no #4.
