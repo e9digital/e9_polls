@@ -1,0 +1,6 @@
+.e9-poll
+  .poll-question
+    = poll.question
+    
+  .poll-answers
+    = render(:partial => 'e9_polls/polls/results_inner', :locals => { :poll => poll })

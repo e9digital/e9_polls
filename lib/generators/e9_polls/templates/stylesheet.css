@@ -1,0 +1,24 @@
+.e9-poll { }
+.poll-question { font-size: large; font-weight: bold; padding: 0 1.2em; }
+.poll-answers { padding: 0 1.2em; margin-bottom: 1em; }
+.poll-answer-bar { height: 15px; display: block; }
+.poll-answer-bar-outer { display: block; background-color: #eee; }
+
+.poll-answer { margin: 1em 0; clear: both; }
+.poll-answer textarea { height: 3em; margin-bottom: 0; }
+.poll-answer .field { margin-bottom: 0; }
+form.edit-poll .actions { margin-top: 1em; }
+
+/*  Poll answers or poll percentage.  */
+.poll-answer-votes { display: none; }
+.poll-answer-percentage {}
+
+/*
+ * Individual bar styles 
+ * (the default is 5 rotating classes, but this can be changed in config).
+ */
+.pab-1 { background-color: Green; }
+.pab-2 { background-color: Maroon; }
+.pab-3 { background-color: LightSalmon; }
+.pab-4 { background-color: LightSeaGreen; }
+.pab-5 { background-color: HotPink; }

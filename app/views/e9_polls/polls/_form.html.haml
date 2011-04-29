@@ -1,8 +1,4 @@
-= form_for resource, :url => polymorphic_path([parent, resource]), :remote => request.xhr? do |f|
-  = content_for :bottom_javascripts do
-    :javascript
-      #{nested_attribute_template_js(Poll, :poll_answers)}
-
+= form_for resource, :url => polymorphic_path([:admin, parent, resource]), :remote => request.xhr? do |f|
   .errors= resource_error_messages!
 
   .field
@@ -19,7 +15,12 @@
       = link_to_add_nested_attribute(:poll_answers)
     = render_nested_attribute_association(:poll_answers, f)
 
-  = render 'shared/admin/region_type_select', :f => f
+  - unless request.xhr?
+    = render 'shared/admin/region_type_select', :f => f
 
   .actions
     = f.submit
+
+  -# the js templates for adding fields, it would probably be nice if this was rendered once, perhaps
+  :javascript
+    #{nested_attribute_template_js(Poll, :poll_answers)}

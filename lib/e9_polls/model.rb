@@ -6,7 +6,9 @@ module E9Polls
     extend ActiveSupport::Concern
 
     included do
-      self.model_name.instance_variable_set('@partial_path', File.join('e9_polls', self.model_name.partial_path).freeze)
+      unless self.model_name.partial_path =~ /^e9_polls/
+        self.model_name.instance_variable_set('@partial_path', File.join('e9_polls', self.model_name.partial_path).freeze)
+      end
     end
   end
 end

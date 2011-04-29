@@ -18,13 +18,18 @@ module E9Polls::PollsHelper
     action  = action.to_sym
     klass   = record.is_a?(Class) ? record : record.class
     scope   = "e9_polls.#{klass.model_name.collection}"
+
+    # NOTE this assumes the definition of #parent, which is added by IR but only on controllers
+    #      with polymorphic belongs_to relationships (by default).
+    scopes  = [*(opts[:scope] || @route_scope), parent].compact
     path    = case action.to_sym
-              when :new;  new_polymorphic_path([parent, klass])
-              when :edit; edit_polymorphic_path([parent, record])
-              else        polymorphic_path([parent, record])
+              when :new;  new_polymorphic_path(scopes << klass)
+              when :edit; edit_polymorphic_path(scopes << record)
+              else        polymorphic_path(scopes << record)
               end
     
     if action == :destroy
+      opts[:method] = :delete
       opts.reverse_merge!({
         :confirm => t(:"#{scope}.confirm_destroy", 
                       :default => :"e9_polls.confirm_destroy")
@@ -91,7 +96,7 @@ module E9Polls::PollsHelper
 
   def nested_attribute_template(association_name, builder, options = {})
     options.symbolize_keys!
-    partial = options[:partial] || builder.object.class.model_name.partial_path
+    partial = options[:partial] || File.join('e9_polls', builder.object.class.model_name.collection, 'nested_attribute_template')
     render(:partial => partial, :locals => { :f => builder })
   end
 

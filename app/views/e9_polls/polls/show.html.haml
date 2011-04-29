@@ -1,2 +1,2 @@
-= title e9_t(:show_title)
-= render 'form'
+= title e9_t(:show_title) unless request.xhr?
+= render(:partial => Poll.model_name.partial_path, :object => resource)

@@ -3,7 +3,7 @@ require 'rails/generators/migration'
 
 module E9Polls
   module Generators
-    class MigrationGenerator < Rails::Generators::Base
+    class InstallGenerator < Rails::Generators::Base
       include Rails::Generators::Migration
 
       def self.source_root
@@ -20,6 +20,12 @@ module E9Polls
 
       def create_migration
         migration_template 'migration.rb', 'db/migrate/create_e9_polls.rb'
+      end
+
+      def copy_over_files
+        copy_file 'initializer.rb', 'config/initializers/e9_polls.rb'
+        copy_file 'javascript.js',  'public/javascripts/e9_polls.js'
+        copy_file 'stylesheet.css', 'public/stylesheets/e9_polls.css'
       end
     end
   end

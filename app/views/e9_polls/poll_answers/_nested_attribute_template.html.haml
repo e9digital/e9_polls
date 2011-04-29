@@ -1,0 +1,9 @@
+.poll-answer.nested-association
+  - if f.object.persisted?
+    = f.hidden_field :id
+    = f.hidden_field :_destroy, :value => 0
+
+  .field
+    = f.text_area :value
+
+  = link_to_destroy_nested_attribute

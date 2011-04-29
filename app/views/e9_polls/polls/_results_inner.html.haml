@@ -1,0 +1,2 @@
+= render(:partial => PollAnswer.model_name.partial_path, :collection => poll.poll_answers)
+= poll_form_link(poll) unless poll_answered?(poll)

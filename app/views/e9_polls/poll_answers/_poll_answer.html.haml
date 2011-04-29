@@ -1,11 +1,18 @@
-.poll-answer.nested-association
-  - if f.object.persisted?
-    = f.hidden_field :id
-    = f.hidden_field :_destroy, :value => 0
-    .field
-      = f.object.value
+.poll-answer{:id => poll_answer.to_anchor}
+  - if f = local_assigns[:f]
+    - unless poll_answered?(poll_answer.poll)
+      = f.radio_button :vote, poll_answer.id, :id => "#{poll_answer.to_anchor}_input"
+    %label{:for => "#{poll_answer.to_anchor}_input"}
+      = poll_answer.value
+      - if poll_answered?(poll_answer.poll, poll_answer)
+        %span.poll-answer-voted
+          = t(:your_vote, :scope => :e9_polls)
   - else
-    .field
-      = f.text_area :value
-
-  = link_to_destroy_nested_attribute
+    %span.poll-answer-value
+      = poll_answer.value
+    %span.poll-answer-bar-outer
+      %span.poll-answer-bar{:style => "width:#{poll_answer.percentage}%", :class => "pab-#{cycle(*(1..(E9Polls.bar_css_class_count)).to_a)}"}
+    %span.poll-answer-votes
+      = poll_answer.votes
+    %span.poll-answer-percentage
+      #{poll_answer.percentage}%

@@ -1,5 +1,8 @@
 <% if resource.errors.any? %>
   $('form .errors').html("<%= escape_javascript(resource_error_messages!) %>");
 <% else %>
-  window.location.reload(true);
+  $('#poll_<%= resource.id %>').html("<%= escape_javascript(render(:partial => Poll.model_name.partial_path, :object => resource)) %>");
+  $('#poll_<%= resource.id %>').quick_edit(true);
+
+  try { $.colorbox.close() } catch(e) {}
 <% end %>
