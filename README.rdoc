@@ -1,3 +1,5 @@
+** NOTE - This gem depends on e9_base, but does not reference it.  It WILL NOT FUNCTION for apps which aren't built on the e9 Rails 3 CMS **
+
 == E9Polls
 
 Provites a Poll renderable for the e9 Rails 3 CMS.
