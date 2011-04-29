@@ -1,3 +1,4 @@
+require 'rails'
 require 'e9_base'
 
 module E9Polls
