@@ -1,15 +1,20 @@
-.poll-answer{:id => poll_answer.to_anchor}
+.poll-answer{:id => poll_answer.to_anchor, :"data-votes" => poll_answer.votes, :"data-percentage" => poll_answer.percentage}
+
   - if f = local_assigns[:f]
-    - unless poll_answered?(poll_answer.poll)
+    - if !poll_answered?(poll_answer.poll)
       = f.radio_button :vote, poll_answer.id, :id => "#{poll_answer.to_anchor}_input"
     %label{:for => "#{poll_answer.to_anchor}_input"}
       = poll_answer.value
       - if poll_answered?(poll_answer.poll, poll_answer)
         %span.poll-answer-voted
           = t(:your_vote, :scope => :e9_polls)
+
   - else
     %span.poll-answer-value
       = poll_answer.value
+      - if poll_answered?(poll_answer.poll, poll_answer)
+        %span.poll-answer-voted
+          = t(:your_vote, :scope => :e9_polls)
     %span.poll-answer-bar-outer
       %span.poll-answer-bar{:style => "width:#{poll_answer.percentage}%", :class => "pab-#{cycle(*(1..(E9Polls.bar_css_class_count)).to_a)}"}
     %span.poll-answer-votes
