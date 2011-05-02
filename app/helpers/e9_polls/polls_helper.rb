@@ -88,6 +88,7 @@ module E9Polls::PollsHelper
     retv = <<-RETV
       TEMPLATES = window.TEMPLATES || {};
       TEMPLATES['#{association_name}'] = {
+        rx: new RegExp(#{options[:index]}, 'g'),
         index: #{options[:index]},
         template: "#{template}"
       };
