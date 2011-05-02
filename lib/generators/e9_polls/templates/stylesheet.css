@@ -7,7 +7,9 @@
 .poll-answer { margin: 1em 0; clear: both; }
 .poll-answer textarea { height: 3em; margin-bottom: 0; }
 .poll-answer .field { margin-bottom: 0; }
+
 form.edit_poll .actions { padding: 0.5em 0; }
+.e9-poll h1 { line-height: 1.333em; }
 
 /*  Poll answers or poll percentage.  */
 .poll-answer-votes { display: none; }
