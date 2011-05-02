@@ -31,8 +31,8 @@ module E9Polls::PollsHelper
     if action == :destroy
       opts[:method] = :delete
       opts.reverse_merge!({
-        :confirm => t(:"#{scope}.confirm_destroy", 
-                      :default => :"e9_polls.confirm_destroy")
+        :remote  => true, 
+        :confirm => t(:"#{scope}.confirm_destroy", :default => :"e9_polls.confirm_destroy")
       })
     end
 
