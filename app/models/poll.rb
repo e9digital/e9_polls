@@ -34,7 +34,7 @@ class Poll < ::Renderable
   end
 
   def votes
-    poll_answers.sum(:votes)
+    poll_answers.sum(:votes).to_i
   end
 
   def percentage_for(poll_answer)
