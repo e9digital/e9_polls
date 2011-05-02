@@ -1,11 +1,12 @@
 class E9Polls::PollsController < AdminController
+  inherit_resources
+
   include E9Rails::Helpers::Translation
   include E9Rails::Helpers::Title
   include E9Rails::Helpers::ResourceErrorMessages
   include E9Rails::Helpers::Pagination
   include E9Rails::Controllers::Orderable
-
-  inherit_resources
+  include E9::DestroyRestricted::Controller
 
   respond_to :json, :only => [:answer, :show]
 
@@ -70,6 +71,12 @@ class E9Polls::PollsController < AdminController
       format.json do
         render(:json => { :poll => resource, :html => render_html_for_action })
       end
+    end
+  end
+
+  def destroy
+    destroy! do |format|
+      format.js
     end
   end
 
