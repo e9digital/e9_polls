@@ -29,6 +29,14 @@ en:
 
   # AR record translations
   activerecord:
+    models:
+      poll: Poll
+      poll_answer: Poll Answer
+    
+    attributes:
+      poll:
+        template: Question
+
     errors:
       models:
         poll:
