@@ -44,6 +44,6 @@ class Poll < ::Renderable
   protected
 
   def reject_answer?(attributes)
-    attributes.keys.member?(:value) && attributes[:value].blank?
+    !attributes.keys.member?('value') || attributes['value'].blank?
   end
 end
