@@ -33,6 +33,7 @@ en:
       models:
         poll:
           attributes:
+            delete_restricted: "This poll is being used in a layout and/or by a page. You can not delete it until you remove all instances where it is used."
             vote:
               already_voted: "Sorry but you've already voted on this poll!"
               no_argument: "Oops, sorry but your vote was not able to be processed!"
