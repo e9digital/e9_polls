@@ -2,7 +2,7 @@ module E9Polls
   module GlobalHelper
     def poll_answered?(poll, answer = nil)
       if cookie = e9_polls_cookie
-        cookie[poll.id] && !answer || cookie[poll.id].to_s == answer.id.to_s
+        cookie[poll.id] and !answer || cookie[poll.id].to_s == answer.id.to_s
       end
     end
 
