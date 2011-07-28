@@ -1,7 +1,7 @@
 .e9-poll{:"data-votes" => poll.votes}
   - if poll.options.header.present?
     .poll-header
-      = poll.options.header
+      = poll.options.header_text
 
   .poll-question
     = poll.question

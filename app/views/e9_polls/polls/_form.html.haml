@@ -11,8 +11,8 @@
 
   = f.fields_for f.object.options do |ff|
     .field
-      = ff.label :header, nil
-      = ff.text_field :header
+      = ff.label :header_text, nil
+      = ff.text_field :header_text
 
   %fieldset.poll-answers.nested-associations
     %legend= f.label(:poll_answers)
