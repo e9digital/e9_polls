@@ -1,5 +1,6 @@
 .e9-poll { }
-.poll-question { font-size: large; font-weight: bold; padding: 0 1.2em; }
+.poll-header, .poll-question { font-size: large; padding: 0 1.2em; }
+.poll-header { font-weight: bold; }
 .poll-answers { padding: 0 1.2em; margin-bottom: 1em; }
 .poll-answer-bar { height: 15px; display: block; }
 .poll-answer-bar-outer { display: block; background-color: #eee; }

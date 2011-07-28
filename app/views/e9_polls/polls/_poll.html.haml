@@ -1,7 +1,10 @@
 .e9-poll{:"data-votes" => poll.votes}
+  - if poll.options.header.present?
+    .poll-header
+      = poll.options.header
+
   .poll-question
     = poll.question
-
   .poll-answers
     - if poll_answered?(poll)
       = render(:partial => 'e9_polls/polls/results_inner', :locals => { :poll => poll })

@@ -9,6 +9,11 @@
     = f.label :template, nil, :class => :req
     = f.text_field :template
 
+  = f.fields_for f.object.options do |ff|
+    .field
+      = ff.label :header, nil
+      = ff.text_field :header
+
   %fieldset.poll-answers.nested-associations
     %legend= f.label(:poll_answers)
     .fields

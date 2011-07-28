@@ -1,5 +1,10 @@
 class Poll < ::Renderable
   include E9Polls::Model
+  include E9Rails::ActiveRecord::InheritableOptions
+
+  self.options_parameters = [
+    :header_text
+  ]
 
   has_many :poll_answers
 
