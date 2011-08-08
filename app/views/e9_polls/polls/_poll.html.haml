@@ -5,6 +5,7 @@
 
   .poll-question
     = poll.question
+
   .poll-answers
     - if poll_answered?(poll)
       = render(:partial => 'e9_polls/polls/results_inner', :locals => { :poll => poll })
