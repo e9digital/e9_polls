@@ -18,9 +18,4 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
-
-  # NOTE This gem depends on e9_base ~> 1.3, but cannot reference it
-  #      because it is a private repository.
-  #
-  # s.add_dependency("e9_base", "~> 1.3.0")
 end
