@@ -1,8 +1,7 @@
 = title (@index_title || e9_t(:index_title))
 
 - content_for :toolbar_right do
-  = toolbar_actions do
-    = e9_polls_resource_link(:new, resource_class)
+  = e9_polls_resource_link(:new, resource_class)
 
 = render 'shared/admin/toolbar'
 
